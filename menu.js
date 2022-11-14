@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -31,8 +30,14 @@
 */
 
 //CODE HERE
-
-
+const pizza = {
+  name: "Supreme",
+  price: 20,
+  category: "entree",
+  popularity: 5,
+  rating: 4,
+  tags: ["kids", "gluten free", "vegetarian"],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,8 +48,8 @@
 */
 
 //CODE HERE
-
-
+console.log(pizza.popularity);
+console.log("------------------------\n------------------------");
 /*
     Second, log the second tag in your pizza's
     tags array.
@@ -53,8 +58,8 @@
 */
 
 //CODE HERE
-
-
+console.log(pizza.tags[1]);
+console.log("------------------------");
 /*
     Third, destructure the price off of the
     pizza object.
@@ -63,8 +68,9 @@
 */
 
 //CODE HERE
-
-
+let { price } = pizza;
+console.log(price);
+console.log("------------------------");
 /*
     Fourth, and last, destructure the category
     property.
@@ -73,8 +79,9 @@
 */
 
 //CODE HERE
-
-
+let { category } = pizza;
+console.log(category);
+console.log("------------------------");
 //////////////////PROBLEM 3////////////////////
 /* 
     Create an array with about 5 objects in it.
@@ -88,9 +95,48 @@
 */
 
 //CODE HERE
-
-
-
+foodArr = [
+  {
+    name: "Peperoni",
+    price: 15,
+    category: "entree1",
+    popularity: 1,
+    rating: 2,
+    tags: ["kids1", "gluten free1", "vegetarian1"],
+  },
+  {
+    name: "Chicken",
+    price: 16,
+    category: "entree2",
+    popularity: 2,
+    rating: 3,
+    tags: ["kids2", "gluten free2", "vegetarian2"],
+  },
+  {
+    name: "Salami",
+    price: 17,
+    category: "entree3",
+    popularity: 3,
+    rating: 5,
+    tags: ["kids3", "gluten free3", "vegetarian3"],
+  },
+  {
+    name: "Mexican",
+    price: 18,
+    category: "entree4",
+    popularity: 4,
+    rating: 6,
+    tags: ["kids4", "gluten free4", "vegetarian4"],
+  },
+  {
+    name: "3Meats",
+    price: 19,
+    category: "entree5",
+    popularity: 6,
+    rating: 7,
+    tags: ["kids5", "gluten free5", "vegetarian5"],
+  },
+];
 //////////////////PROBLEM 4////////////////////
 /* 
     Let's filter the food objects according
@@ -104,10 +150,12 @@
 */
 
 //CODE HERE
-
+const filteredFood = foodArr.filter((food) =>
+  food.tags.includes("gluten free4")
+);
+console.log(filteredFood);
+console.log("------------------------");
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,8 +197,27 @@
 */
 
 //CODE HERE
-
-
+function filterByProperty(property, number, type) {
+  let filteredArr = [];
+  if (type === "above") {
+    if (property === "price") {
+      filteredArr = foodArr.filter((food) => food.price >= number);
+    } else if (property === "popularity") {
+      filteredArr = foodArr.filter((food) => food.popularity >= number);
+    } else if (property === "rating") {
+      filteredArr = foodArr.filter((food) => food.rating >= number);
+    }
+  } else if (type === "below") {
+    if (property === "price") {
+      filteredArr = foodArr.filter((food) => food.price < number);
+    } else if (property === "popularity") {
+      filteredArr = foodArr.filter((food) => food.popularity < number);
+    } else if (property === "rating") {
+      filteredArr = foodArr.filter((food) => food.rating < number);
+    }
+  }
+  return filteredArr;
+}
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -159,3 +226,5 @@
 */
 
 //CODE HERE
+let results = filterByProperty("rating", 4, "below");
+console.log(results);

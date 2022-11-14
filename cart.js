@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,25 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((acc, obj) => acc + obj.price, 0);
+console.log(summedPrice);
+console.log("________________________");
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,9 +54,10 @@ const cart = [
 */
 
 //CODE HERE
-
-
-
+function calcFinalPrice(cartTotal, couponValue, tax) {
+  return cartTotal * tax + cartTotal - couponValue;
+}
+console.log(calcFinalPrice(1000, 100, 0.06));
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -79,6 +80,12 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+object name: customer
+object properties: I am choosing this properties because it is important to have that information from the customer in order to be able to contact them, in case the restaurant needs to verify something about the customer order.
+Name: should be a string data type, because it will store letters
+last name: should be a string data type, because will store letters
+Phone Number: should be string data type, because even though it will store numbers, we need that value only print it out as a string and not using that value as a number
+email: should be a stringdate type , because it will store lertters, numbers and characteres all mixed.
 
 */
 
@@ -88,3 +95,9 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {
+  name: "Erick",
+  lastName: "Estrada",
+  phoneNumber: '1231231234',
+  email: "erick123@gmail.com",
+};
