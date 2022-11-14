@@ -30,6 +30,7 @@ class Employee {
   }
 }
 
+// console.log to check that  my employee class is working
 let employee1 = new Employee("erick", "monday to friday");
 employee1.getSchedule();
 
@@ -121,11 +122,10 @@ class Manager extends Employee {
 */
 
 //CODE HERE
-const manager = new Manager(
-  "winston",
-  "weekday mornings, weekday afternoons",
-  ["Cece", "Schmidt"]
-);
+const manager = new Manager("winston", "weekday mornings, weekday afternoons", [
+  "Cece",
+  "Schmidt",
+]);
 /*
     Call the `getEmployees` method on the
     `manager` object.  
